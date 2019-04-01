@@ -1,7 +1,19 @@
 // MOBILE NAVIGATION
 $(document).ready(function () {
     $('.sidenav').sidenav();
+    $('.step2').hide();
 });
+
+// var photoElem = $('<div>');
+
+// var stepsElem = $('<p>');
+// stepsElem.addClass('main-text');
+
+$('.next').on('click', function () {
+    $('.step1').hide();
+    $('.step2').show();
+})
+
 
 
 $('#video').on('click', function () {

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="z-depth-0">
+    <nav>
         <div class="nav-wrapper #4db6ac teal lighten-2">
             <a href="../../index.html" class="brand-logo">Access ID</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -36,17 +36,54 @@
     </ul>
 
 
-    <div class="container #4db6ac teal lighten-2">
-        <p class="main-text">Step 1: Take a photo</p>
+    <div class="container step1">
+        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 1: Information</p>
 
+
+        <div class="container">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next"><i
+                class="material-icons" id="snap">arrow_forward</i></a>
+    </div>
+    <br><br>
+
+
+
+
+    <div class="container step2">
+        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 2: Take a photo</p>
+
+        <div class="video z-depth-2">
+            <video id="video" autoplay></video> <br><br>
+            <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i class="material-icons"
+                    id="snap">add</i></a>
+            <br><br>
+            <canvas id="canvas"></canvas>
+
+        </div>
     </div>
 
-<div class="video">
-        <video id="video" autoplay></video> <br><br>
-        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i class="material-icons" id="snap">add</i></a>
-        <br><br>
-        <canvas id="canvas"></canvas>
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Compiled and minified CSS -->
