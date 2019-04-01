@@ -10,11 +10,25 @@ $(document).ready(function () {
 // var stepsElem = $('<p>');
 // stepsElem.addClass('main-text');
 
+
+
+// LOCAL STORAGE //
 $('.next').on('click', function () {
     $('.step1').hide();
-    $('.step2').show();
-})
+    $('.step2').show(); 
 
+    event.preventDefault();
+
+    var firstName = $("#first_name").val().trim();
+    var lastName = $("#last_name").val().trim();
+    var email = $("#email").val().trim();
+
+    localStorage.clear();
+    localStorage.setItem("First Name: ", firstName);
+    localStorage.setItem("Last Name: ", lastName);
+    localStorage.setItem("Email: ", email);
+
+})
 
 
 $('#video').on('click', function () {
@@ -44,4 +58,3 @@ document.getElementById("snap").addEventListener("click", function() {
 
 
 })
-
