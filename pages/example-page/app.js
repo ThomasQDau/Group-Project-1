@@ -26,7 +26,7 @@ $('.next1').on('click', function () {
     var email = $("#email").val().trim();
 
     localStorage.clear();
-    localStorage.setItem("Object", firstName + lastName);
+    localStorage.setItem("Full Name", firstName + lastName);
     localStorage.setItem("First Name", firstName);
     localStorage.setItem("Last Name", lastName);
     localStorage.setItem("Email", email);
@@ -38,7 +38,7 @@ $('.next2').on('click', function () {
     $('.step2').hide();
     $('.step3').show();
 
-    $('#namedisplay').text('Name: ' + localStorage.getItem("First Name"));
+    $('#namedisplay').text('Name: ' + localStorage.getItem("First Name") + ' ' + localStorage.getItem("Last Name"));
     $('#emaildisplay').text('Email: ' + localStorage.getItem("Email"));
 })
 
@@ -70,7 +70,7 @@ $('#video').on('click', function () {
 })
 
 $('.upward').on('click', function() {
-    var fullName = localStorage.getItem('Object');
+    var fullName = localStorage.getItem('Full Name');
     database.ref(fullName).set({
         firstname: localStorage.getItem('First Name'),
         lastname: localStorage.getItem('Last Name'),
@@ -78,5 +78,3 @@ $('.upward').on('click', function() {
         email: localStorage.getItem('Email')
     })
 })
-
-console.log(database);
