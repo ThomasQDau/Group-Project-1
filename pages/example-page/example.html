@@ -63,13 +63,13 @@
             </div>
 
         </div>
-        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next"><i
+        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next next1"><i
                 class="material-icons" id="snap">arrow_forward</i></a>
     </div>
     <br><br>
 
 
-    <!-- Testing Thomas' webcam -->
+    <!-- Testing Thomas' webcam
     <div class="camera">
         <video id="video">Video stream not available.</video>
         <button id="startbutton">Take photo</button>
@@ -78,12 +78,12 @@
     <canvas id="canvas">
     </canvas>
     <div class="output">
-      <img id="photo" alt="The screen capture will appear in this box.">
-    </div>
+        <img id="photo" alt="The screen capture will appear in this box.">
+    </div> -->
 
 
     <!-- Mymy's webcam (didn't work on all devices) -->
-    <!-- <div class="container step2">
+    <div class="container step2">
         <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 2: Take a photo</p>
 
         <div class="video z-depth-2">
@@ -94,9 +94,41 @@
             <canvas id="canvas"></canvas>
 
         </div>
-    </div> -->
+        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next next2"><i
+            class="material-icons" id="snap">arrow_forward</i></a>
+    </div>
+
+    <div class="container step3">
+        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 3: Confirm information</p>
+
+        <div>
+            <div id="namedisplay"></div>
+            <div id="emaildisplay"></div>
+            <div>Your Photo: <br>
+                <div id="webimg"></div>
+            </div>
+        </div>
+        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 upward"><i
+            class="material-icons" id="snap">arrow_upward</i></a>
+    </div>
 
 
+
+    <!-- Linking to firebae -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDDnq8HP_kDg9oNGDi1T-tIJurdxVIa9BM",
+            authDomain: "gym-id.firebaseapp.com",
+            databaseURL: "https://gym-id.firebaseio.com",
+            projectId: "gym-id",
+            storageBucket: "gym-id.appspot.com",
+            messagingSenderId: "859340300083"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -106,7 +138,7 @@
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="app2.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
