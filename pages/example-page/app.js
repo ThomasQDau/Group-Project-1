@@ -1,4 +1,5 @@
 // MOBILE NAVIGATION
+//TODO: Copy paste to other js
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.step2').hide();
