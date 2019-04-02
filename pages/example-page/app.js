@@ -5,7 +5,6 @@ $(document).ready(function () {
     $('.step3').hide();
 });
 var database = firebase.database();
-var test = "test";
 
 // var photoElem = $('<div>');
 
