@@ -79,14 +79,14 @@ $('.upward').on('click', function () {
         for (var i = 0; i < 10; i++) {
             idnumber = idnumber + Math.floor(Math.random() * 10);
         };
-        database.ref().once('value', function (data) {
-            //TODO: Find how to pull database data once and compare values
-            if (data.child(idnumber).exist()) {
-                idGenerator();
-                console.log(idnumber);
-                console.log(data.child);
-            }
-        })
+        // database.ref().once('value', function (data) {
+        //     //TODO: Find how to pull database data once and compare values
+        //     if (data.child(idnumber).exist()) {
+        //         idGenerator();
+        //         console.log(idnumber);
+        //         console.log(data.child);
+        //     }
+        // })
     }
     idGenerator();
     $('#idDisplay').text('Your ID # is: ' + idnumber);
@@ -94,7 +94,7 @@ $('.upward').on('click', function () {
     database.ref(idnumber).set({
         firstname: localStorage.getItem('First Name'),
         lastname: localStorage.getItem('Last Name'),
-        picture: baseString,
+        picture: img,
         email: localStorage.getItem('Email')
     })
 
@@ -104,4 +104,14 @@ $('.upward').on('click', function () {
     })
 })
 
+Webcam.attach( '#my_camera' );
 
+
+var img = null;
+function take_snapshot() {
+    Webcam.snap( function(data_uri) {
+        document.getElementById('my_result').innerHTML = '<img align="middle" src="'+data_uri+'"/>';
+        img = data_uri
+    } );
+    
+}
