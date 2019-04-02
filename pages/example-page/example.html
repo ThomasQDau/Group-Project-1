@@ -65,34 +65,13 @@
     </div>
     <br><br>
 
-
-    <!-- Testing Thomas' webcam
-    <div class="camera">
-        <video id="video">Video stream not available.</video>
-        <button id="startbutton">Take photo</button>
-    </div>
-
-    <canvas id="canvas">
-    </canvas>
-    <div class="output">
-        <img id="photo" alt="The screen capture will appear in this box.">
-    </div> -->
-
-
-    <!-- Mymy's webcam (didn't work on all devices) -->
+    <!-- Webcam -->
     <div class="container step2">
         <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 2: Take a photo</p>
         <div class="cameraHolder z-depth-2">
             <script src="webcam.js"></script>
             <div id="my_camera" style="width:640px; height:480px; margin: auto;"></div>
             <div id="my_result" style="margin-left:25%; margin-right:25%;;"></div>
-
-            <script language="JavaScript">
-
-
-                console.log(baseString);
-            </script>
-
             <a href="javascript:void(take_snapshot())">Take Snapshot</a>
             <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i class="material-icons"
                     id="snap">add</i></a>
@@ -117,8 +96,6 @@
                 class="material-icons" id="snap">arrow_upward</i></a>
     </div>
 
-
-
     <!-- Linking to firebae -->
 
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
@@ -132,17 +109,14 @@
         };
         firebase.initializeApp(config);
     </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
     <script src="app.js"></script>
 </body>
 
