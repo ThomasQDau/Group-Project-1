@@ -94,7 +94,7 @@ $('.upward').on('click', function () {
     database.ref(idnumber).set({
         firstname: localStorage.getItem('First Name'),
         lastname: localStorage.getItem('Last Name'),
-        picture: baseString,
+        picture: img,
         email: localStorage.getItem('Email')
     })
 
@@ -104,4 +104,14 @@ $('.upward').on('click', function () {
     // })
 })
 
+Webcam.attach( '#my_camera' );
 
+
+var img = null;
+function take_snapshot() {
+    Webcam.snap( function(data_uri) {
+        document.getElementById('my_result').innerHTML = '<img align="middle" src="'+data_uri+'"/>';
+        img = data_uri
+    } );
+    
+}
