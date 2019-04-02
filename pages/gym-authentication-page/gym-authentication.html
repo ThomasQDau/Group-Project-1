@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <nav>
         <div class="nav-wrapper #4db6ac teal lighten-2">
             <a href="../../index.html" class="brand-logo">Access ID</a>
@@ -32,91 +33,82 @@
     <ul class="sidenav" id="mobile-demo">
         <li><a href="../about-us-page/about-us.html">About us</a></li>
         <li><a href="../thesis-page/thesis.html">Thesis</a></li>
-        <li><a href="../example-page/example.html" class="example">Example</a></li>
+        <li><a href="../example-page/example.html">Example</a></li>
         <li><a href="../case-studies-page/case-studies.html">Case Studies</a></li>
     </ul>
 
+    <div class="container step2">
+        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Verify ID with Photo</p>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="video z-depth-2">
+                        <video id="video" autoplay></video> <br><br>
+                        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i
+                                class="material-icons" id="snap">add</i></a>
+                        <br><br>
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next next2"><i
+                class="material-icons" id="snap">arrow_forward</i></a>
+    </div>
 
     <div class="container step1">
-        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 1: Information</p>
-
-
+        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Enter Your Credentials</p>
         <div class="container">
             <div class="row">
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
+                            <input id="id_number" type="text" class="validate">
+                            <label for="id_number">ID Number</label>
                         </div>
                     </div>
                 </form>
             </div>
-
         </div>
         <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next next1"><i
                 class="material-icons" id="snap">arrow_forward</i></a>
     </div>
-    <br><br>
 
-
-    <!-- Testing Thomas' webcam
-    <div class="camera">
-        <video id="video">Video stream not available.</video>
-        <button id="startbutton">Take photo</button>
-    </div>
-
-    <canvas id="canvas">
-    </canvas>
-    <div class="output">
-        <img id="photo" alt="The screen capture will appear in this box.">
-    </div> -->
-
-
-    <!-- Mymy's webcam (didn't work on all devices) -->
-    <div class="container step2">
-        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 2: Take a photo</p>
-
-        <div class="video z-depth-2">
-            <video id="video" autoplay></video> <br><br>
-            <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i class="material-icons"
-                    id="snap">add</i></a>
-            <br><br>
-            <canvas id="canvas"></canvas>
-
-        </div>
-        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next next2"><i
-            class="material-icons" id="snap">arrow_forward</i></a>
-    </div>
-
-    <div class="container step3">
-        <p class="main-text #4db6ac teal lighten-2 z-depth-2 confirm">Step 3: Confirm information</p>
-
-        <div>
-            <div id="namedisplay"></div>
-            <div id="emaildisplay"></div>
-            <div>Your Photo: <br>
-                <div id="webimg"></div>
+    <div class="container stepfail">
+        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Authentication Failed!</p>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <p>Credentials do not match system data. Please try again.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="idDisplay"></div>
         </div>
-        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 upward"><i
-            class="material-icons" id="snap">arrow_upward</i></a>
+        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next nextfail"><i
+                class="material-icons" id="snap">arrow_forward</i></a>
     </div>
 
+    <div class="container steppass">
+        <p class="main-text #4db6ac teal lighten-2 z-depth-2">Welcome!</p>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <p id="welcome"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next nextfail"><i
+                class="material-icons" id="snap">arrow_forward</i></a>
+    </div>
 
-
-    <!-- Linking to firebae -->
+    <br><br>
 
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script>
@@ -140,6 +132,7 @@
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- TODO: make js -->
     <script src="app.js"></script>
 </body>
 
