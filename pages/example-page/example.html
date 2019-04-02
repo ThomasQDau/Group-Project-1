@@ -92,19 +92,9 @@
             <div id="my_camera" style="width:640px; height:480px; margin: auto;"></div>
             <div id="my_result" style="margin-left:25%; margin-right:25%;;"></div>
             <script language="JavaScript">
-                Webcam.attach( '#my_camera' );
-                var baseString = data_uri; 
+ 
+                 
                 console.log(baseString);
-                function take_snapshot() {
-                    Webcam.snap( function(data_uri) {
-                        document.getElementById('my_result').innerHTML = '<img align="middle" src="'+data_uri+'"/>';
-                    } );
-                    
-                }
-
-                function helper_function() {
-
-                }
             </script>
             
             <a href="javascript:void(take_snapshot())">Take Snapshot</a>
