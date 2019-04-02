@@ -62,3 +62,20 @@ body {
     background-color: #666;
 
 }
+
+.container2 {
+    margin: 0 auto;
+    width: 960px;
+}
+#side-bar {
+    margin: 10px;
+    color: white;
+    padding: 10px;
+}
+
+#main-bar {
+    margin: 10px;
+    width: 60%;
+    color: white;
+    padding: 10px;
+}
