@@ -8,8 +8,6 @@ $(document).ready(function () {
 });
 
 var database = firebase.database();
-var storage = firebase.storage();
-var storageRef = storage.ref();
 var idNumber = '';
 
 $('.next1').on('click', function(){
