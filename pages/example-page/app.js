@@ -18,7 +18,6 @@ var test = "test";
 $('.next1').on('click', function () {
     $('.step1').hide();
     $('.step2').show();
-
     event.preventDefault();
 
     var firstName = $("#first_name").val().trim();
@@ -37,11 +36,9 @@ $('.next2').on('click', function () {
     $('.step2').hide();
     $('.step3').show();
     $('#my_result').appendTo('#webimg')
-
     $('#namedisplay').text('Name: ' + localStorage.getItem("First Name") + ' ' + localStorage.getItem("Last Name"));
     $('#emaildisplay').text('Email: ' + localStorage.getItem("Email"));
 })
-
 
 $('#video').on('click', function () {
 
@@ -69,10 +66,8 @@ $('#video').on('click', function () {
     });
 })
 
-
 //Uploads data and picture to Firebase
 $('.upward').on('click', function () {
-
     var idnumber = '';
     function idGenerator() {
         idnumber ='';
@@ -97,21 +92,14 @@ $('.upward').on('click', function () {
         picture: img,
         email: localStorage.getItem('Email')
     })
-
-    var file = $('#name').files[0]; //TODO: add selector for where the file is coming from
-    storageRef.child(idnumber).put(file).then(function (snapshot) {
-        console.log('Uploaded a file!');
-    })
 })
 
+//Webcam application
 Webcam.attach( '#my_camera' );
-
-
 var img = null;
 function take_snapshot() {
     Webcam.snap( function(data_uri) {
         document.getElementById('my_result').innerHTML = '<img align="middle" src="'+data_uri+'"/>';
         img = data_uri
-    } );
-    
+    } ); 
 }
