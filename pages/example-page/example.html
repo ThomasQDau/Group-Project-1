@@ -86,8 +86,20 @@
     <div class="container step2">
         <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 2: Take a photo</p>
 
-        <div class="video z-depth-2">
-            <video id="video" autoplay></video> <br><br>
+        <div class="cameraHolder z-depth-2">
+            <script src="webcam.js"></script>
+            <div id="my_camera" style="width:640px; height:480px; margin: auto;"></div>
+            <div id="my_result" style="margin-left:25%; margin-right:25%;;"></div>
+            <script language="JavaScript">
+                Webcam.attach( '#my_camera' );
+                
+                function take_snapshot() {
+                    Webcam.snap( function(data_uri) {
+                        document.getElementById('my_result').innerHTML = '<img align="middle" src="'+data_uri+'"/>';
+                    } );
+                }
+            </script>
+            <a href="javascript:void(take_snapshot())">Take Snapshot</a>
             <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i class="material-icons"
                     id="snap">add</i></a>
             <br><br>

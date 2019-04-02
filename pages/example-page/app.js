@@ -37,7 +37,7 @@ $('.next2').on('click', function () {
     event.preventDefault();
     $('.step2').hide();
     $('.step3').show();
-
+    $('#my_result').appendTo('#webimg')
     $('#namedisplay').text('Name: ' + localStorage.getItem("First Name") + ' ' + localStorage.getItem("Last Name"));
     $('#emaildisplay').text('Email: ' + localStorage.getItem("Email"));
 })
@@ -78,3 +78,4 @@ $('.upward').on('click', function() {
         email: localStorage.getItem('Email')
     })
 })
+
