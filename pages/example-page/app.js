@@ -1,18 +1,18 @@
 // MOBILE NAVIGATION
-//TODO: Copy paste to other js
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.step2').hide();
     $('.step3').hide();
 });
 var database = firebase.database();
+var storage = firebase.storage();
+var storageRef = storage.ref();
+
 
 // var photoElem = $('<div>');
 
 // var stepsElem = $('<p>');
 // stepsElem.addClass('main-text');
-
-
 
 // LOCAL STORAGE //
 $('.next1').on('click', function () {
@@ -69,12 +69,36 @@ $('#video').on('click', function () {
     });
 })
 
-$('.upward').on('click', function() {
-    var fullName = localStorage.getItem('Full Name');
-    database.ref(fullName).set({
+
+//Uploads data and picture to Firebase
+$('.upward').on('click', function () {
+
+    var idnumber = '';
+    function idGenerator() {
+        for (var i = 0; i < 10; i++) {
+            idnumber = idnumber + Math.floor(Math.random() * 10);
+        };
+        database.ref().on('value', function (data) {
+            if (data.child(idnumber).exist()) {
+                idGenerator();
+            }
+        })
+    }
+    idGenerator();
+
+    database.ref(idnumber).set({
         firstname: localStorage.getItem('First Name'),
         lastname: localStorage.getItem('Last Name'),
         picture: localStorage.getItem('Picture'),
         email: localStorage.getItem('Email')
     })
+
+    var file = $('#name').files[0]; //TODO: add selector for where the file is coming from
+    storageRef.child(idnumber).put(file).then(function (snapshot) {
+        console.log('Uploaded a file!');
+    })
 })
+
+
+
+

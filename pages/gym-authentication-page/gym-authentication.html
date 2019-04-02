@@ -22,7 +22,7 @@
             <a href="../../index.html" class="brand-logo">Access ID</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="about-us.html">About us</a></li>
+                <li><a href="../about-us-page/about-us.html">About us</a></li>
                 <li><a href="../thesis-page/thesis.html">Thesis</a></li>
                 <li><a href="../example-page/example.html">Example</a></li>
                 <li><a href="../case-studies-page/case-studies.html">Case Studies</a></li>
@@ -31,27 +31,36 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="assets/pages/about-us.html">About us</a></li>
+        <li><a href="../about-us-page/about-us.html">About us</a></li>
         <li><a href="../thesis-page/thesis.html">Thesis</a></li>
         <li><a href="../example-page/example.html">Example</a></li>
         <li><a href="../case-studies-page/case-studies.html">Case Studies</a></li>
     </ul>
 
-    <div class="row  #4db6ac teal lighten-2">
+    <div class="row #4db6ac teal lighten-2">
+        
+    </div>
 
+    <div class="container">
 
     </div>
 
 
 
-    <div class="container">
 
-        </div>
-
-
-
-
-
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDDnq8HP_kDg9oNGDi1T-tIJurdxVIa9BM",
+            authDomain: "gym-id.firebaseapp.com",
+            databaseURL: "https://gym-id.firebaseio.com",
+            projectId: "gym-id",
+            storageBucket: "gym-id.appspot.com",
+            messagingSenderId: "859340300083"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
