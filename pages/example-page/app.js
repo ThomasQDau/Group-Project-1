@@ -7,7 +7,7 @@ $(document).ready(function () {
 var database = firebase.database();
 var storage = firebase.storage();
 var storageRef = storage.ref();
-
+var test = "test";
 
 // var photoElem = $('<div>');
 
@@ -36,6 +36,7 @@ $('.next2').on('click', function () {
     event.preventDefault();
     $('.step2').hide();
     $('.step3').show();
+    $('#my_result').appendTo('#webimg')
 
     $('#namedisplay').text('Name: ' + localStorage.getItem("First Name") + ' ' + localStorage.getItem("Last Name"));
     $('#emaildisplay').text('Email: ' + localStorage.getItem("Email"));
@@ -80,11 +81,11 @@ $('.upward').on('click', function () {
         };
         database.ref().once('value', function (data) {
             //TODO: Find how to pull database data once and compare values
-            // if (data.child(idnumber).exist()) {
-            //     idGenerator();
+            if (data.child(idnumber).exist()) {
+                idGenerator();
                 console.log(idnumber);
                 console.log(data.child);
-            // }
+            }
         })
     }
     idGenerator();
@@ -93,7 +94,7 @@ $('.upward').on('click', function () {
     database.ref(idnumber).set({
         firstname: localStorage.getItem('First Name'),
         lastname: localStorage.getItem('Last Name'),
-        picture: localStorage.getItem('Picture'),
+        picture: baseString,
         email: localStorage.getItem('Email')
     })
 
@@ -102,7 +103,5 @@ $('.upward').on('click', function () {
         console.log('Uploaded a file!');
     })
 })
-
-
 
 
