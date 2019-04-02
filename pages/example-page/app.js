@@ -79,14 +79,14 @@ $('.upward').on('click', function () {
         for (var i = 0; i < 10; i++) {
             idnumber = idnumber + Math.floor(Math.random() * 10);
         };
-        database.ref().once('value', function (data) {
-            //TODO: Find how to pull database data once and compare values
-            if (data.child(idnumber).exist()) {
-                idGenerator();
-                console.log(idnumber);
-                console.log(data.child);
-            }
-        })
+        // database.ref().once('value', function (data) {
+        //     //TODO: Find how to pull database data once and compare values
+        //     if (data.child(idnumber).exist()) {
+        //         idGenerator();
+        //         console.log(idnumber);
+        //         console.log(data.child);
+        //     }
+        // })
     }
     idGenerator();
     $('#idDisplay').text('Your ID # is: ' + idnumber);
@@ -98,10 +98,10 @@ $('.upward').on('click', function () {
         email: localStorage.getItem('Email')
     })
 
-    var file = $('#name').files[0]; //TODO: add selector for where the file is coming from
-    storageRef.child(idnumber).put(file).then(function (snapshot) {
-        console.log('Uploaded a file!');
-    })
+    // var file = $('#name').files[0]; //TODO: add selector for where the file is coming from
+    // storageRef.child(idnumber).put(file).then(function (snapshot) {
+    //     console.log('Uploaded a file!');
+    // })
 })
 
 
