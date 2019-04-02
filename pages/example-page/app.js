@@ -30,7 +30,6 @@ $('.next1').on('click', function () {
     localStorage.setItem("First Name", firstName);
     localStorage.setItem("Last Name", lastName);
     localStorage.setItem("Email", email);
-
 })
 
 $('.next2').on('click', function () {
@@ -75,17 +74,22 @@ $('.upward').on('click', function () {
 
     var idnumber = '';
     function idGenerator() {
+        idnumber ='';
         for (var i = 0; i < 10; i++) {
             idnumber = idnumber + Math.floor(Math.random() * 10);
         };
-        database.ref().on('value', function (data) {
-            if (data.child(idnumber).exist()) {
-                idGenerator();
-            }
+        database.ref().once('value', function (data) {
+            //TODO: Find how to pull database data once and compare values
+            // if (data.child(idnumber).exist()) {
+            //     idGenerator();
+                console.log(idnumber);
+                console.log(data.child);
+            // }
         })
     }
     idGenerator();
-
+    $('#idDisplay').text('Your ID # is: ' + idnumber);
+    $('.confirm').text('Application Sent!')
     database.ref(idnumber).set({
         firstname: localStorage.getItem('First Name'),
         lastname: localStorage.getItem('Last Name'),
