@@ -19,6 +19,32 @@ $('.next1').on('click', function () {
         picture = data.child(idNumber).child('picture').val();
         if (picture != null) {
             $('#youimg').append('<img src="' + picture + '">')
+            // Sends image to Kairos and returns a console log with details of the face recognition
+            var headers = {
+                "Content-type": "application/json",
+                "app_id": "b9f2d60a",
+                "app_key": "dadb4197732a9c1e434fb8eb6f6f4b76",
+                //Not sure if this is how I put it in but I'm going to try. FUCK IT
+                // "image": picture,
+                // "gallery_name": "UCI",
+                // "subject_id": idNumber
+            };
+            var picture = null;
+            var payload = { "image": "" };
+            database.ref().once('value', function (data) {
+                picture = data.child(idNumber).child('picture').val();
+                payload = { "image": picture };
+                var url = "http://api.kairos.com/detect";
+                // make request 
+                $.ajax(url, {
+                    headers: headers,
+                    type: "POST",
+                    data: JSON.stringify(payload),
+                    dataType: "text"
+                }).done(function (response) {
+                    $('#youimg').append(response);
+                });
+            });
         } else {
             $('#youimg').html('Your credentials are incorrect!');
         }
@@ -40,25 +66,3 @@ database.ref().once('value', function (data) {
     console.log(data.child('4320552453').child('picture').val());
 });
 
-//Sends image to Kairos and returns a console log with details of the face recognition
-// var headers = {
-//     "Content-type": "application/json",
-//     "app_id": "b9f2d60a",
-//     "app_key": "dadb4197732a9c1e434fb8eb6f6f4b76"
-// };
-// var picture = null;
-// var payload = { "image": "" };
-// database.ref().once('value', function (data) {
-//     picture = data.child('4320552453').child('picture').val();
-//     payload = { "image": picture };
-//     var url = "http://api.kairos.com/detect";
-//     // make request 
-//     $.ajax(url, {
-//         headers: headers,
-//         type: "POST",
-//         data: JSON.stringify(payload),
-//         dataType: "text"
-//     }).done(function (response) {
-//         console.log(response);
-//     });
-// });
