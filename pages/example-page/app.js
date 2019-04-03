@@ -73,7 +73,8 @@ $('.upward').on('click', function () {
                 console.log(data.child);
             } else {
                 $('#idDisplay').text('Your ID # is: ' + idnumber);
-                $('.confirm').text('Application Sent!')
+                //here
+                ('#emaildisplay').append('</br> ID Number:' + idnumber)
                 database.ref(idnumber).set({
                     firstname: localStorage.getItem('First Name'),
                     lastname: localStorage.getItem('Last Name'),
