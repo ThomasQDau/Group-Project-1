@@ -7,9 +7,24 @@ $(document).ready(function () {
     $('.steppass').hide();
 });
 
+var headers = {
+	"Content-type     : application/json",
+	"app_id"          : "YOUR_APP_ID",
+	"app_key"         : "YOUR_APP_KEY"
+};
+var payload  = { "image" : "YOUR_IMAGE_URL" };
+var url = "http://api.kairos.com/detect";
+// make request 
+$.ajax(url, {
+	headers  : headers,
+    type: "POST",
+    data: JSON.stringify(payload),
+    dataType: "text"
+}).done(function(response){
+	console.log(response);
+});
+
 var database = firebase.database();
-var storage = firebase.storage();
-var storageRef = storage.ref();
 var idNumber = '';
 
 $('.next1').on('click', function(){

@@ -5,12 +5,6 @@ $(document).ready(function () {
     $('.step3').hide();
 });
 var database = firebase.database();
-var test = "test";
-
-// var photoElem = $('<div>');
-
-// var stepsElem = $('<p>');
-// stepsElem.addClass('main-text');
 
 // LOCAL STORAGE //
 $('.next1').on('click', function () {
@@ -68,7 +62,7 @@ $('#video').on('click', function () {
 $('.upward').on('click', function () {
     var idnumber = '';
     function idGenerator() {
-        idnumber ='';
+        idnumber = '';
         for (var i = 0; i < 10; i++) {
             idnumber = idnumber + Math.floor(Math.random() * 10);
         };
@@ -93,11 +87,11 @@ $('.upward').on('click', function () {
 })
 
 //Webcam application
-Webcam.attach( '#my_camera' );
+Webcam.attach('#my_camera');
 var img = null;
 function take_snapshot() {
-    Webcam.snap( function(data_uri) {
-        document.getElementById('my_result').innerHTML = '<img align="middle" src="'+data_uri+'"/>';
+    Webcam.snap(function (data_uri) {
+        document.getElementById('my_result').innerHTML = '<img align="middle" src="' + data_uri + '"/>';
         img = data_uri
-    } ); 
+    });
 }
