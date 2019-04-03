@@ -13,7 +13,6 @@ var idNumber = '';
 $('.next1').on('click', function () {
     $('.step1').hide();
     idNumber = $('#id_number').val().trim();
-    console.log(idNumber);
     var picture = null;
     database.ref().once('value', function (data) {
         picture = data.child(idNumber).child('picture').val();
@@ -24,10 +23,6 @@ $('.next1').on('click', function () {
                 "Content-type": "application/json",
                 "app_id": "b9f2d60a",
                 "app_key": "dadb4197732a9c1e434fb8eb6f6f4b76",
-                //Not sure if this is how I put it in but I'm going to try. FUCK IT
-                // "image": picture,
-                // "gallery_name": "UCI",
-                // "subject_id": idNumber
             };
             var picture = null;
             var payload = { "image": "" };
@@ -42,7 +37,12 @@ $('.next1').on('click', function () {
                     data: JSON.stringify(payload),
                     dataType: "text"
                 }).done(function (response) {
-                    $('#youimg').append(response);
+                    var kairosObject = JSON.parse(response);
+                    console.log(kairosObject);
+                    var asian = kairosObject.images[0].faces[0].attributes.asian;
+                    console.log(asian);
+                    var age = kairosObject.images[0].faces[0].attributes.age;
+                    console.log(age);
                 });
             });
         } else {
@@ -61,8 +61,3 @@ function enterPressed(e) {
         event.preventDefault();
     }
 }
-
-database.ref().once('value', function (data) {
-    console.log(data.child('4320552453').child('picture').val());
-});
-
