@@ -66,24 +66,24 @@ $('.upward').on('click', function () {
         for (var i = 0; i < 10; i++) {
             idnumber = idnumber + Math.floor(Math.random() * 10);
         };
-        // database.ref().once('value', function (data) {
-        //     //TODO: Find how to pull database data once and compare values
-        //     if (data.child(idnumber).exist()) {
-        //         idGenerator();
-        //         console.log(idnumber);
-        //         console.log(data.child);
-        //     }
-        // })
+        database.ref().once('value', function (data) {
+            if (data.hasChild(idnumber)) {
+                idGenerator();
+                console.log(idnumber);
+                console.log(data.child);
+            } else {
+                $('#idDisplay').text('Your ID # is: ' + idnumber);
+                $('.confirm').text('Application Sent!')
+                database.ref(idnumber).set({
+                    firstname: localStorage.getItem('First Name'),
+                    lastname: localStorage.getItem('Last Name'),
+                    picture: img,
+                    email: localStorage.getItem('Email')
+                })
+            }
+        })
     }
     idGenerator();
-    $('#idDisplay').text('Your ID # is: ' + idnumber);
-    $('.confirm').text('Application Sent!')
-    database.ref(idnumber).set({
-        firstname: localStorage.getItem('First Name'),
-        lastname: localStorage.getItem('Last Name'),
-        picture: img,
-        email: localStorage.getItem('Email')
-    })
 })
 
 //Webcam application
