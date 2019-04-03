@@ -84,20 +84,20 @@
         <p class="main-text #4db6ac teal lighten-2 z-depth-2">Step 2: Take a photo</p>
         <div class="cameraHolder z-depth-2">
             <script src="webcam.js"></script>
+            <div class="camera_container">
             <div id="my_camera" style="width:640px; height:480px; margin: auto;"></div>
-            <div id="my_result" style="margin-left:25%; margin-right:25%;;"></div>
+            <div id="my_result" style="margin-left:25%; margin-right:25%;;" >
 
-            <script language="JavaScript">
-
-
-                console.log(baseString);
-            </script>
-
-            <a href="javascript:void(take_snapshot())">Take Snapshot</a>
-            <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i class="material-icons"
-                    id="snap">add</i></a>
+            
+         
             <br><br>
+            
+        </div>
             <canvas id="canvas"></canvas>
+            </div>
+            <a href="javascript:void(take_snapshot())" class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i class="material-icons"
+                id="snap">add</i></a>
+            
         </div>
         <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next next2"><i
                 class="material-icons" id="snap">arrow_forward</i></a>
@@ -106,9 +106,11 @@
     <div class="container step3">
         <p class="main-text #4db6ac teal lighten-2 z-depth-2 confirm">Step 3: Confirm information</p>
         <div>
+            <div id="information_holder">
             <div id="namedisplay"></div>
             <div id="emaildisplay"></div>
-            <div>Your Photo: <br>
+            </div>
+            
                 <div id="webimg"></div>
             </div>
             <div id="idDisplay"></div>
@@ -128,7 +130,6 @@
             authDomain: "we-think-you-are-1bdd1.firebaseapp.com",
             databaseURL: "https://we-think-you-are-1bdd1.firebaseio.com",
             projectId: "we-think-you-are-1bdd1",
-            storageBucket: "",
             messagingSenderId: "767475111416"
         };
         firebase.initializeApp(config);
