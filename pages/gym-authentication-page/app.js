@@ -7,8 +7,17 @@ $(document).ready(function () {
     $('.steppass').hide();
 });
 
+function enterPressed(e){
+    e=e||window.event;
+    var key = e.keyCode;
+    if(key==13) //Enter
+    {
+       event.preventDefault();
+    }
+  }
+
 var headers = {
-	"Content-type     : application/json",
+	"Content-type"    : "application/json",
 	"app_id"          : "YOUR_APP_ID",
 	"app_key"         : "YOUR_APP_KEY"
 };
