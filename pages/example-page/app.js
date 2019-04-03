@@ -79,7 +79,8 @@ $('.upward').on('click', function () {
                     firstname: localStorage.getItem('First Name'),
                     lastname: localStorage.getItem('Last Name'),
                     picture: img,
-                    email: localStorage.getItem('Email')
+                    email: localStorage.getItem('Email'),
+                    galleryid: 'uci'
                 })
             }
         })
