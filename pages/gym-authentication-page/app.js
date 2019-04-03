@@ -26,7 +26,7 @@ $('.next1').on('click', function () {
         lastname = data.child(idNumber).child('lastname').val();
         email = data.child(idNumber).child('email').val();
 
-        $('#youimg').append('Photo: <br><img src="' + picture + '">')
+        // $('#youimg').append('Photo: <br><img src="' + picture + '">')
 
         $('#name-display').append('Name: ' + firstname + ' ' + lastname);
         $('#email-display').append('Email: ' + email);
