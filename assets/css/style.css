@@ -71,6 +71,7 @@ background-color: lightblue;
 
 #my_result {
     margin-left: -50px;
+    margin-top: 50px;
 }
 #my_result img {
     border: 10px solid lightblue;
