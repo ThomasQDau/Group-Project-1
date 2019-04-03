@@ -74,13 +74,6 @@ $('.upward').on('click', function () {
             } else {
                 $('#idDisplay').text('Your ID # is: ' + idnumber);
                 $('.confirm').text('Application Sent!')
-                database.ref(idnumber).set({
-                    firstname: localStorage.getItem('First Name'),
-                    lastname: localStorage.getItem('Last Name'),
-                    picture: img,
-                    email: localStorage.getItem('Email'),
-                    galleryid: 'uci'
-                })
             }
         })
     }
