@@ -15,7 +15,25 @@ $('.next1').on('click', function () {
     idNumber = $('#id_number').val().trim();
     var picture = null;
     database.ref().once('value', function (data) {
+        // picture = data.child(idNumber).child('picture').val();
+        // $('#youimg').append('Photo: <br><img src="' + picture + '">')
+
+
+        // added extra information to the page
         picture = data.child(idNumber).child('picture').val();
+        firstname = data.child(idNumber).child('firstname').val();
+        lastname = data.child(idNumber).child('lastname').val();
+        email = data.child(idNumber).child('email').val();
+
+        // $('#youimg').append('Photo: <br><img src="' + picture + '">')
+
+        $('#name-display').append('Name: ' + firstname + ' ' + lastname);
+        $('#email-display').append('Email: ' + email);
+
+        $('#confirmation').append('ID Number: ' + idNumber);
+
+
+
         if (picture != null) {
             $('#youimg').append('<img src="' + picture + '">')
             // Sends image to Kairos and returns a console log with details of the face recognition
