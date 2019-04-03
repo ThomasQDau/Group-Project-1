@@ -74,7 +74,6 @@ $('.upward').on('click', function () {
             } else {
                 $('#idDisplay').text('Your ID # is: ' + idnumber);
                 //here
-                ('#emaildisplay').append('</br> ID Number:' + idnumber)
                 database.ref(idnumber).set({
                     firstname: localStorage.getItem('First Name'),
                     lastname: localStorage.getItem('Last Name'),
