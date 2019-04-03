@@ -16,8 +16,25 @@ $('.next1').on('click', function () {
     console.log(idNumber);
     var picture = null;
     database.ref().once('value', function (data) {
+        // picture = data.child(idNumber).child('picture').val();
+        // $('#youimg').append('Photo: <br><img src="' + picture + '">')
+
+
+        // added extra information to the page
         picture = data.child(idNumber).child('picture').val();
-        $('#youimg').append('<img src="' + picture + '">')
+        firstname = data.child(idNumber).child('firstname').val();
+        lastname = data.child(idNumber).child('lastname').val();
+        email = data.child(idNumber).child('email').val();
+
+        $('#youimg').append('Photo: <br><img src="' + picture + '">')
+
+        $('#name-display').append('Name: ' + firstname + ' ' + lastname);
+        $('#email-display').append('Email: ' + email);
+
+        $('#confirmation').append('ID Number: ' + idNumber);
+
+
+
     });
     $('#id_number').empty();
     $('.step2').show();
