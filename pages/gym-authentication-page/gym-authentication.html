@@ -19,7 +19,8 @@
 
     <nav>
         <div class="nav-wrapper #4db6ac teal lighten-2">
-            <img style="height:50px;width:50px;padding-top:7px;margin-left:10px;" src="https://www.t2techgroup.com/wp-content/uploads/2018/07/security-icon-300x274.png">
+            <img style="height:50px;width:50px;padding-top:7px;margin-left:10px;"
+                src="https://www.t2techgroup.com/wp-content/uploads/2018/07/security-icon-300x274.png">
             <a href="../../index.html" class="brand-logo">Access ID</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
@@ -38,13 +39,20 @@
         <li><a href="../case-studies-page/case-studies.html">Case Studies</a></li>
     </ul>
 
-    <div class="container step2">
-        <p class="main-text #4db6ac teal lighten-2 z-depth-2">ES DIS U?!</p>
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
 
-                    <!-- added extra information to page -->
+    <!-- added extra information to page -->
+
+
+
+    <!-- Webcam -->
+    <div class="container step2">
+        <p class="main-text #4db6ac teal lighten-2 z-depth-2">ES DIS U?</p>
+        <div class="cameraHolder z-depth-2">
+            <script src="webcam.js"></script>
+            <div class="camera_container">
+                <div id="my_camera" style="width:640px; height:480px; margin: auto;"></div>
+                <div id="my_result" style="margin-left:25%; margin-right:25%;;">
+                    <br><br>
                     <div id="name-display"></div>
                     <div id="email-display"></div>
                     <div id="confirmation"></div>
@@ -52,20 +60,18 @@
                     <div id="youimg"></div>
                     <br><br>
                     <div id="identification"></div>
-
-                    <!-- <div class="video z-depth-2">
-                        <video id="video" autoplay></video> <br><br>
-                        <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4"><i
-                                class="material-icons" id="snap">add</i></a>
-                        <br><br>
-                        <canvas id="canvas"></canvas>
-                    </div> -->
                 </div>
+                <canvas id="canvas"></canvas>
             </div>
+            <a href="javascript:void(take_snapshot())"
+                class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 takepicture"><i
+                    class="material-icons" id="snap">add</i></a>
+
         </div>
         <a class="btn-floating btn-large waves-effect waves-light #ff6d00 orange accent-4 right next next2"><i
                 class="material-icons" id="snap">arrow_forward</i></a>
     </div>
+
 
     <div class="container step1">
         <p class="main-text #4db6ac teal lighten-2 z-depth-2">Enter Your Credentials</p>
@@ -74,7 +80,8 @@
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="id_number" onkeypress="enterPressed()" maxlength="10" type="text" class="validate">
+                            <input id="id_number" onkeypress="enterPressed()" maxlength="10" type="text"
+                                class="validate">
                             <label for="id_number">ID Number</label>
                         </div>
                     </div>
