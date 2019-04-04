@@ -57,6 +57,44 @@ $('.upward').on('click', function () {
                     email: localStorage.getItem('Email'),
                     galleryid: 'uci'
                 })
+
+                // enroll
+                var request = new XMLHttpRequest();
+                request.open('POST', 'https://api.kairos.com/enroll');
+                request.setRequestHeader('Content-Type', 'application/json');
+                request.setRequestHeader('app_id', 'b9f2d60a');
+                request.setRequestHeader('app_key', 'dadb4197732a9c1e434fb8eb6f6f4b76');
+                request.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        // console.log('Status:', this.status);
+                        // console.log('Headers:', this.getAllResponseHeaders());
+                        // console.log('Body:', this.responseText);
+
+                        var enrollObj = JSON.parse(this.responseText);
+                        // // console.log('Body:' + enrollObj);
+
+
+                        // var subjectId = enrollObj.images[0].transaction.subject_id;
+                        // console.log('Subject ID: ' + subjectId);
+
+                        // var status = enrollObj.images[0].transaction.status;
+                        // console.log('Status: ' + status);
+
+                        // var confidence = enrollObj.images[0].transaction.confidence;
+                        // console.log('Confidence: ' + confidence);
+
+                    }
+                };
+
+                var body = {
+                    'image': img,
+                    'subject_id': idnumber,
+                    'gallery_name': 'MyGallery'
+                };
+
+                request.send(JSON.stringify(body));
+                console.log('================================================');
+
                 $('.confirm').text('Application Sent!')
             }
         })
