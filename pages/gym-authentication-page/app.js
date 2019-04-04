@@ -49,7 +49,7 @@ $('.next1').on('click', function () {
             $('#youimg').append('<img src="' + picture + '">')
             // Sends image to Kairos and returns a console log with details of the face recognition
         } else {
-            $('#youimg').html('Your credentials are incorrect!');
+            $('#youimg').html('');
         }
     });
     $('#id_number').empty();
@@ -70,25 +70,27 @@ $('.next2').on('click', function() {
             console.log('Body:', this.responseText);
 
             var verifyObj = JSON.parse(this.responseText);
-            // console.log('Body:' + verifyObj);
+            console.log(verifyObj);
 
-            // var subjectId = verifyObj.images[0].transaction.subject_id;
-            // console.log('Subject ID: ' + subjectId);
-            // $('#identification').append('Subject ID: ' + subjectId + '<br>');
-
-            // var status = verifyObj.images[0].transaction.status;
-            // console.log('Status: ' + status);
-            // $('#identification').append('Status: ' + status + '<br>');
-
-            var confidence = verifyObj.images[0].transaction.confidence;
-            console.log('Confidence: ' + confidence);
-            $('#identification').append('Confidence: ' + confidence + '<br>');
-
-            if (confidence < .60) {
-                $('#identification').append('Confidence level is under .6 and status is unsuccess thus user is not correct. Please show another form of identification.');
+            if (verifyObj.Errors[0].Message === "no faces found in the image") {
+                $('.step2').hide();
+                $('.stepfail').show();
             } else {
-                $('#identification').append('Confidence level is over .6 and status is success thus we have determined this is you!');
+                var confidence = verifyObj.images[0].transaction.confidence;
+                console.log('Confidence: ' + confidence);
+                $('#identification').append('Confidence: ' + confidence + '<br>');
+    
+                if (confidence > .60) {
+                    $('#identification').append('Confidence level is over .6 and status is success thus we have determined this is you!');
+                    $('.step2').hide();
+                    $('.steppass').show();
+                } else {
+                    $('.step2').hide();
+                    $('.stepfail').show();
+                } 
             }
+
+
         }
     };
 
@@ -145,6 +147,9 @@ $('.next2').on('click', function() {
 
 
 })
+
+
+
 
 function enterPressed(e) {
     e = e || window.event;
