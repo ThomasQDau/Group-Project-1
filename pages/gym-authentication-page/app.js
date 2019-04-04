@@ -95,7 +95,7 @@ $('.next1').on('click', function () {
 
                     var body = {
                         'image': picture,
-                        'subject_id': firstname,
+                        'subject_id': idNumber,
                         'gallery_name': 'MyGallery'
                     };
 
@@ -145,7 +145,7 @@ $('.next1').on('click', function () {
                     var body = {
                         'image': picture,
                         'gallery_name': 'MyGallery',
-                        'subject_id': firstname
+                        'subject_id': idNumber
                     };
 
                     request.send(JSON.stringify(body));
