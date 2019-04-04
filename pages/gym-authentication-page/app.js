@@ -72,10 +72,8 @@ $('.next2').on('click', function() {
             var verifyObj = JSON.parse(this.responseText);
             console.log(verifyObj);
 
-            if (this.status != 200){
-                
-                // verifyObj.Errors[0].Message === "no faces found in the image"
-                
+            if ( verifyObj.Errors[0].Message === "no faces found in the image" || verifyObj.Errors[0].Message === "subject id was not found" || img == null){
+            
                 $('.step2').hide();
                 $('.stepfail').show();
             } else {
