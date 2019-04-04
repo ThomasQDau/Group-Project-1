@@ -3,6 +3,10 @@ body {
     font-family: 'Heebo', sans-serif;
 }
 
+#youimg {
+    width: 400px;
+}
+
 .brand-logo {
     margin-left: 1rem;
     font-family: 'Oswald', sans-serif;
@@ -95,4 +99,19 @@ video {
    border-radius: 15px 30px;
    padding: 20px;
    margin-bottom: 50px;
+.container2 {
+    margin: 0 auto;
+    width: 960px;
+}
+#side-bar {
+    margin: 10px;
+    color: white;
+    padding: 10px;
+}
+
+#main-bar {
+    margin: 10px;
+    width: 60%;
+    color: white;
+    padding: 10px;
 }
